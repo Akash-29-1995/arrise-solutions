@@ -1,9 +1,6 @@
-# Intentionally removed: GitHub's default "Makefile CI" template does not apply
-# to this Terraform repository (it expects ./configure / make check).
+# Disabled: GitHub's default "Makefile CI" template does not apply to this
+# Terraform repository (it expects ./configure / make check).
 # Validation runs via terraform-validate.yml instead.
-#
-# This file exists only to overwrite the broken template on main.
-# Safe to delete after terraform-validate.yml is active on the default branch.
 
 name: Makefile CI (disabled)
 
