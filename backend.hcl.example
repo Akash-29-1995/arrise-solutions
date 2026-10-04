@@ -1,0 +1,5 @@
+bucket         = "arrise-devops-tfstate-REPLACE_ACCOUNT_ID"
+key            = "multi-account/dev/ap-south-1/root.tfstate"
+region         = "ap-south-1"
+dynamodb_table = "arrise-devops-tf-locks"
+encrypt        = true

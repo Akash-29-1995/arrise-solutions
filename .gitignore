@@ -1,0 +1,17 @@
+.DS_Store
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+backend.hcl
+.sandbox/
+*.pem
+id_rsa*
+id_ed25519*
+.idea/
+.vscode/

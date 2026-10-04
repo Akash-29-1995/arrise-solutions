@@ -1,0 +1,61 @@
+# Task 1 inventory — one map drives the whole fleet (no hardcoded resource blocks).
+# Subnet / SG IDs omitted so reviewers can use default-VPC discovery.
+# All five root volume types are distinct and boot-compatible
+# (standard, gp2, gp3, io1, io2). sc1/st1 are invalid as root volumes.
+
+web-a:
+  instance_type: t3.micro
+  root_volume_type: gp3
+  root_volume_size: 20
+  root_throughput: 125
+  key_name: arrise-web-a
+  associate_public_ip_address: true
+  tags:
+    Workload: web
+    AvailabilityTier: standard
+    Criticality: low
+
+web-b:
+  instance_type: t3.small
+  root_volume_type: gp2
+  root_volume_size: 30
+  key_name: arrise-web-b
+  associate_public_ip_address: true
+  tags:
+    Workload: web
+    AvailabilityTier: standard
+    Criticality: low
+
+worker-a:
+  instance_type: t3.medium
+  root_volume_type: standard
+  root_volume_size: 40
+  key_name: arrise-worker-a
+  tags:
+    Workload: worker
+    AvailabilityTier: standard
+    Criticality: medium
+
+batch-a:
+  instance_type: m6i.large
+  root_volume_type: io1
+  root_volume_size: 80
+  root_iops: 2400
+  key_name: arrise-batch-a
+  tags:
+    Workload: batch
+    AvailabilityTier: capacity-optimized
+    Criticality: medium
+
+ledger-a:
+  instance_type: m6i.xlarge
+  root_volume_type: io2
+  root_volume_size: 100
+  root_iops: 3000
+  key_name: arrise-ledger-a
+  disable_api_termination: true
+  protected: true
+  tags:
+    Workload: ledger
+    AvailabilityTier: protected
+    Criticality: high

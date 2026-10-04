@@ -1,0 +1,30 @@
+# Copy to terraform.tfvars for Path D (full / remote-state) runs.
+# For the happy path, prefer: make sandbox-up  (see REVIEWER.md)
+
+aws_region  = "ap-south-1"
+environment = "dev"
+owner       = "reviewer"
+tenant      = "shared"
+
+# Exact assignment names when empty. Sandbox scripts set a unique prefix automatically.
+name_prefix = ""
+
+# Single-account reviewer mode: leave these commented.
+# account_a_id = "111122223333"
+# account_b_id = "444455556666"
+# account_a_deploy_role_arn = "arn:aws:iam::111122223333:role/terraform-deploy-role"
+# account_b_deploy_role_arn = "arn:aws:iam::444455556666:role/terraform-deploy-role"
+
+enable_ec2 = false
+enable_iam = true
+
+use_default_vpc               = true
+manage_key_pairs              = true
+generate_ssh_key              = true
+force_destroy_iam_users       = false
+create_console_login_profiles = false
+
+# Only required when enable_ec2=true and generate_ssh_key=false:
+# ssh_public_key = "ssh-ed25519 AAAA... reviewer@example.com"
+
+instance_inventory_file = "inventory/dev-instances-cheap.yaml"
