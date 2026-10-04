@@ -1,27 +1,17 @@
-name: Makefile CI
+# Disabled: GitHub's default "Makefile CI" template does not apply to this
+# Terraform repository (it expects ./configure / make check).
+# Validation runs via terraform-validate.yml instead.
+
+name: Makefile CI (disabled)
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  build:
-
+  noop:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-
-    - name: configure
-      run: ./configure
-
-    - name: Install dependencies
-      run: make
-
-    - name: Run check
-      run: make check
-
-    - name: Run distcheck
-      run: make distcheck
+      - name: Point reviewers to the real workflow
+        run: |
+          echo "Use the 'Terraform Validate' workflow (terraform-validate.yml)."
+          echo "This Makefile CI template was disabled because this is not an autotools project."
